@@ -118,15 +118,19 @@
                             <div class="row">
                                 <div class="col-md-6" style="border-right: 1px solid #ddd;">
                                     <div class="row">
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="unit_price">Unit price</label>
                                             <input type="number" min="0" value="0" step="0.01" placeholder="Unit price" name="unit_price" class="form-control" required="">
                                         </div>
-                                        <div class="form-group col-md-6">
+                                        <div class="form-group col-md-4">
                                             <label for="purchase_price">Purchase price</label>
                                             <input type="number" min="0" value="0" step="0.01"
                                                    placeholder="Purchase price" name="purchase_price"
                                                    class="form-control" required="">
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="profit_margin">Profit Margin price</label>
+                                            <input type="number" min="0" value="0" step="0.01" placeholder="Profit margin" name="profit_margin" class="form-control" required="">
                                         </div>
                                     </div>
                                     <div class="row">

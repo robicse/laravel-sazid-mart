@@ -159,6 +159,10 @@
                                                    placeholder="Purchase price" name="purchase_price"
                                                    class="form-control" required="">
                                         </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="profit_margin">Profit Margin price</label>
+                                            <input type="number" min="0" value="{{$product->profit_margin}}" step="0.01" placeholder="Profit margin" name="profit_margin" class="form-control" required="">
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-4">

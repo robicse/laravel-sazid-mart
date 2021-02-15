@@ -24,7 +24,7 @@ class DashboardController extends Controller
         $totalBrands = Brand::count();
         $totalAttributes = Attribute::count();
         $totalProducts =  Product::count();
-        $totalReqProducts =  Product::where('added_by','seller')->where('admin_permission',0)->count();
+        $totalReqProducts =  Product::where('admin_permission',0)->count();
         //dd($totalBrands);
         return view('backend.admin.dashboard',
             compact('totalStaffs','totalBrands','totalUsers','totalCategories',
