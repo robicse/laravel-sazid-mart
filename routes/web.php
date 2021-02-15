@@ -17,22 +17,23 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-//Route::get('/', 'Frontend\FrontendController@index')->name('index');
+Route::get('/', 'Frontend\FrontendController@index')->name('index');
 Route::get('/shopping-cart', 'Frontend\CartController@viewCart')->name('shopping-cart');
 Route::get('/shop', 'Frontend\ShopController@shop')->name('shop');
 Route::get('/about-us', 'Frontend\AboutController@About')->name('about-us');
-Route::get('/contact', 'Frontend\AboutController@contact')->name('contact');
+Route::get('/contact', 'Frontend\AboutController@contact')->name('contact-us');
 Route::get('/faqs', 'Frontend\AboutController@faqs')->name('faqs');
 Route::get('/our-policy', 'Frontend\AboutController@policy')->name('policy');
 Route::get('/terms-and-conditions', 'Frontend\AboutController@terms')->name('terms-condition');
 Route::get('/shipping', 'Frontend\AboutController@shipping')->name('shipping');
 Route::get('/order-returns', 'Frontend\AboutController@returns')->name('returns');
-Route::get('/blog-list', 'Frontend\BlogController@index')->name('blog-list');
-Route::get('/blog-details', 'Frontend\BlogController@details')->name('blog-details');
 Route::get('/add/wishlist/{id}', 'Frontend\WishlistController@wishlistAdd' )->name('add.wishlist');
 Route::get('/remove/wishlist/{id}', 'Frontend\WishlistController@wishlistRemove' )->name('remove.wishlist');
-Route::get('/add/favorite-shop/{id}', 'User\FavoriteShopController@favoriteShop')->name('add.favorite-shop');
-Route::get('/remove/favorite-shop/{id}', 'User\FavoriteShopController@removeFavoriteShop')->name('remove.favorite-shop');
+
+//Blog
+Route::get('/blog', 'Frontend\BlogController@index')->name('blog-list');
+Route::get('/blog-details', 'Frontend\BlogController@details')->name('blog-details');
+
 
 //Search
 Route::get('/search/product', 'Frontend\VendorController@search_product');
@@ -53,21 +54,25 @@ Route::post('/get-verification-code-store', 'Frontend\VerificationController@ver
 Route::get('/check-verification-code', 'Frontend\VerificationController@CheckVerificationCode')->name('check-verification-code');
 
 //product
-Route::get('/product/{slug}', 'Frontend\ProductController@ProductDetails')->name('product-details');
-Route::post('/products/get/variant/price', 'Frontend\ProductController@ProductVariantPrice')->name('product.variant.price');
-Route::get('/products/{slug}', 'Frontend\ProductController@productList')->name('product.list');
-Route::get('/products/{name}/{slug}/{sub}', 'Frontend\ProductController@productSubCategory')->name('product.by.subcategory');
-Route::get('/products/{name}/{slug}', 'Frontend\ProductController@productByBrand')->name('product.by.brand');
-Route::post('/products/ajax/addtocart', 'Frontend\CartController@ProductAddCart')->name('product.add.cart');
-Route::get('/product/clear/cart', 'Frontend\CartController@clearCart')->name('product.clear.cart');
-Route::get('/product/remove/cart/{id}', 'Frontend\CartController@cartRemove')->name('product.cart.remove');
-Route::post('/cart/quantity_update', 'Frontend\CartController@quantityUpdate')->name('qty.update');
-//Shop/Vendor
-//Route::post('/shop/nearest/list', 'Frontend\ShopController@nearestshop')->name('shop.nearest');
-//Route::get('/become-a-vendor', 'Frontend\VendorController@index')->name('become-vendor');
-//Route::get('/shop/{name}/{slug}', 'Frontend\VendorController@categoryProducts')->name('category.products');
-//Route::get('/shop/{slug}', 'Frontend\VendorController@singleshop')->name('shop.details');
-//Route::get('/vendor/list', 'Frontend\VendorController@vendorList')->name('vendor.list');
+Route::get('/products', 'Frontend\ProductController@productList')->name('all-product-list');
+Route::get('/product-details', 'Frontend\ProductController@productDetails')->name('product-details');
+
+
+//Cart
+Route::get('/cart', 'Frontend\CartController@cartShow')->name('show.cart');
+Route::get('/checkout', 'Frontend\CartController@checkout')->name('checkout');
+
+
+//Route::get('/product/{slug}', 'Frontend\ProductController@ProductDetails')->name('product-details');
+//Route::post('/products/get/variant/price', 'Frontend\ProductController@ProductVariantPrice')->name('product.variant.price');
+//Route::get('/products/{slug}', 'Frontend\ProductController@productList')->name('product.list');
+//Route::get('/products/{name}/{slug}/{sub}', 'Frontend\ProductController@productSubCategory')->name('product.by.subcategory');
+//Route::get('/products/{name}/{slug}', 'Frontend\ProductController@productByBrand')->name('product.by.brand');
+//Route::post('/products/ajax/addtocart', 'Frontend\CartController@ProductAddCart')->name('product.add.cart');
+//Route::get('/product/clear/cart', 'Frontend\CartController@clearCart')->name('product.clear.cart');
+//Route::get('/product/remove/cart/{id}', 'Frontend\CartController@cartRemove')->name('product.cart.remove');
+//Route::post('/cart/quantity_update', 'Frontend\CartController@quantityUpdate')->name('qty.update');
+
 Route::get('/flash-deals/{slug}', 'Frontend\VendorController@flashdeal')->name('flash-deals');
 Route::get('/todays-deal/{slug}', 'Frontend\VendorController@todaysDeal')->name('todays-deal-products');
 Route::get('/todays-deal/{name}/{slug}/{sub}', 'Frontend\VendorController@todaysDealSubCategory');
