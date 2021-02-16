@@ -14,8 +14,8 @@ class OrderManagementController extends Controller
 {
     public function orderHistory()
     {
-        $orders = Order::where('user_id',Auth::id())->latest()->get();
-        return view('frontend.user.order_history',compact('orders'));
+//        $orders = Order::where('user_id',Auth::id())->latest()->get();
+        return view('frontend.customer.order_history');
     }
 
     public function printInvoice($id) {

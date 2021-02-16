@@ -1,9 +1,12 @@
 <header class="header-style-1">
 
     <!-- ============================================== TOP MENU ============================================== -->
-    <div class="top-bar animate-dropdown">
+    <div class="top-bar animate-dropdown" style="background: #83B735;">
         <div class="container">
             <div class="header-top-inner">
+                <div>
+                    <span><strong>Welcome to Sazid Mart</strong></span>
+                </div>
                 <div class="cnt-account">
                     <ul class="list-unstyled">
                         <li><a href="#"><i class="icon fa fa-user"></i>My Account</a></li>
@@ -40,7 +43,7 @@
         </div><!-- /.container -->
     </div><!-- /.header-top -->
     <!-- ============================================== TOP MENU : END ============================================== -->
-    <div class="main-header">
+    <div class="main-header" style="background: #f3f3f3;">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
@@ -48,13 +51,13 @@
                     <div class="logo">
                         <a href="{{url('/')}}">
 
-                            <img src="{{asset('frontend/assets/images/logo.png')}}" alt="">
+                            <img src="{{asset('frontend/logo_sazidmart.png')}}" alt="">
 
                         </a>
                     </div><!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->				</div><!-- /.logo-holder -->
 
-                <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
+                <div class="col-xs-12 col-sm-12 col-md-6 top-search-holder">
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area">
@@ -86,26 +89,49 @@
                     </div><!-- /.search-area -->
                     <!-- ============================================================= SEARCH AREA : END ============================================================= -->				</div><!-- /.top-search-holder -->
 
-                <div class="col-xs-12 col-sm-12 col-md-2 animate-dropdown top-cart-row">
+                <div class="col-xs-12 col-sm-12 col-md-3 animate-dropdown top-cart-row">
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
-
+{{--                    <span>Login</span>--}}
                     <div class="dropdown dropdown-cart">
-                        <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                        <a href="{{route('login')}}" class="dropdown-toggle lnk-cart">
                             <div class="items-cart-inner">
-                                <div class="basket">
-                                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                                <div class="basket" style="color:#000;">
+                                    <span>Login</span>
                                 </div>
-                                <div class="basket-item-count"><span class="count">2</span></div>
-                                <div class="total-price-basket">
-                                    <span class="lbl">cart -</span>
-                                    <span class="total-price">
-						<span class="sign">$</span><span class="value">600.00</span>
-					</span>
-                                </div>
-
-
                             </div>
                         </a>
+                        <a href="{{route('register')}}" class="dropdown-toggle lnk-cart">
+                            <div class="items-cart-inner">
+                                <div class="basket" style="color:#000;">
+                                    <span>Register</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                            <div class="items-cart-inner">
+                                <div class="basket" style="color:#000;">
+                                    <i class="glyphicon glyphicon-shopping-cart"></i>
+                                </div>
+                            </div>
+                        </a>
+{{--                                <div class="basket" style="color:#000;">--}}
+{{--                                    <span> Register</span>--}}
+{{--                                </div>--}}
+{{--                                <div class="basket" style="color:#000;">--}}
+{{--                                    <i class="glyphicon glyphicon-shopping-cart"></i>--}}
+{{--                                </div>--}}
+{{--                                --}}{{--                                <div class="basket-item-count"><span class="count">2</span></div>--}}
+
+{{--                                <div class="total-price-basket">--}}
+{{--                                    --}}{{--                                    <span class="lbl">cart -</span>--}}
+{{--                                    --}}{{--                                    <span class="total-price">--}}
+{{--                                    --}}{{--						<span class="sign">$</span><span class="value">600.00</span>--}}
+{{--                                    --}}{{--					</span>--}}
+{{--                                </div>--}}
+
+
+{{--                            </div>--}}
+{{--                        </a>--}}
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="cart-item product-summary">

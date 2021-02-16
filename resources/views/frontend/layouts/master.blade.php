@@ -36,6 +36,8 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    {{--toastr js--}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 @stack('css')
 
 </head>
@@ -75,11 +77,23 @@
 <script src="{{asset('frontend/assets/js/bootstrap-select.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/wow.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/scripts.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
+<script>
+    @if($errors->any())
+    @foreach($errors->all() as $error )
+    toastr.error('{{$error}}','Error',{
+        closeButton:true,
+        progressBar:true
+    });
+    @endforeach
+    @endif
+
+</script>
 @stack('js')
 
 
 
 </body>
 
-<!-- Mirrored from www.themesground.com/flipmart-demo/V2/home.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 15 Feb 2021 08:21:40 GMT -->
 </html>
