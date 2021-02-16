@@ -4,8 +4,8 @@
     <div class="top-bar animate-dropdown" style="background: #83B735;">
         <div class="container">
             <div class="header-top-inner">
-                <div>
-                    <span><strong>Welcome to Sazid Mart</strong></span>
+                <div class="" style="color: white; font-size: 14px;">
+                    <span><strong>WELCOME TO SAZID MART| YOUR TRUSTED ONLINE SHOPPING MALL</strong></span>
                 </div>
                 <div class="cnt-account">
                     <ul class="list-unstyled">
@@ -13,7 +13,6 @@
                         <li><a href="#"><i class="icon fa fa-heart"></i>Wishlist</a></li>
                         <li><a href="#"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                         <li><a href="#"><i class="icon fa fa-check"></i>Checkout</a></li>
-                        <li><a href="#"><i class="icon fa fa-lock"></i>Login</a></li>
                     </ul>
                 </div><!-- /.cnt-account -->
 

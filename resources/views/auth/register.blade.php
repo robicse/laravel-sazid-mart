@@ -15,11 +15,14 @@
     </div>
     <div class="body-content">
         <div class="container">
-            <div class="sign-in-page" style="padding: 30px 300px 80px 300px; background: #f3f3f3;">
-                <h4 class="">Register</h4>
+            <div class="sign-in-page">
+                <div class="row">
+                    <!-- Sign-in -->
+                    <div class="col-md-6 col-sm-6 sign-in" style="padding-left: 70px">
+
                 <form class="register-form outer-top-xs" role="form" action="{{ route('user.register') }}" method="POST">
                     @csrf
-
+                    <h4 class="">Register</h4>
                     <div class="form-group">
                         <label class="info-title" for="name">Name </label>
                             <input class="form-control unicase-form-control text-input" type="text" name="name">
@@ -43,6 +46,11 @@
 {{--                    </div>--}}
                     <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Sign Up</button>
                 </form>
+                    </div>
+                    <div class="col-md-6 col-sm-6 create-new-account">
+                        <img src="{{asset('frontend/register.jpg')}}" alt="" width="400" height="400">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
