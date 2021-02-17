@@ -16,7 +16,8 @@
             <div class="row">
 
                 <div class="col-md-12 contact-map outer-bottom-vs">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0080692193424!2d80.29172299999996!3d13.098675000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f446a1c3187%3A0x298011b0b0d14d47!2sTransvelo!5e0!3m2!1sen!2sin!4v1412844527190" width="600" height="450"  style="border:0"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7300.673021324737!2d90.369024!3d23.80663!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc18895a9ca50c80a!2sSazid%20Mart%20-%20Your%20Trusted%20Online%20Shop!5e0!3m2!1sen!2sbd!4v1613538867123!5m2!1sen!2sbd" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+{{--                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.0080692193424!2d80.29172299999996!3d13.098675000000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526f446a1c3187%3A0x298011b0b0d14d47!2sTransvelo!5e0!3m2!1sen!2sin!4v1412844527190" width="600" height="450"  style="border:0"></iframe>--}}
                 </div>
                 <div class="col-md-9 contact-form">
                     <div class="col-md-12 contact-title">
@@ -64,15 +65,15 @@
                     </div>
                     <div class="clearfix address">
                         <span class="contact-i"><i class="fa fa-map-marker"></i></span>
-                        <span class="contact-span">ThemesGround, 789 Main rd, Anytown, CA 12345 USA</span>
+                        <span class="contact-span">Unit # 1306 (12th Floor), Shah Ali Plaza, Mirpur-10 (Roundabout), Dhaka 1216.</span>
                     </div>
                     <div class="clearfix phone-no">
                         <span class="contact-i"><i class="fa fa-mobile"></i></span>
-                        <span class="contact-span">+(888) 123-4567<br>+(888) 456-7890</span>
+                        <span class="contact-span">Phone: (+88)09639-111233</span>
                     </div>
                     <div class="clearfix email">
                         <span class="contact-i"><i class="fa fa-envelope"></i></span>
-                        <span class="contact-span"><a href="#">flipmart@themesground.com</a></span>
+                        <span class="contact-span">Email: admin@sazidmart.com.bd</span>
                     </div>
                 </div>			</div><!-- /.contact-page -->
         </div><!-- /.row -->

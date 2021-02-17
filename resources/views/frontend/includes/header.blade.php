@@ -92,20 +92,35 @@
                     <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 {{--                    <span>Login</span>--}}
                     <div class="dropdown dropdown-cart">
-                        <a href="{{route('login')}}" class="dropdown-toggle lnk-cart">
-                            <div class="items-cart-inner">
-                                <div class="basket" style="color:#000;">
-                                    <span>Login</span>
+                        @if(Auth::guest())
+                            <a href="{{route('login')}}" class="dropdown-toggle lnk-cart">
+                                <div class="items-cart-inner">
+                                    <div class="basket" style="color:#000;">
+                                        <span>Login</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="{{route('register')}}" class="dropdown-toggle lnk-cart">
-                            <div class="items-cart-inner">
-                                <div class="basket" style="color:#000;">
-                                    <span>Register</span>
+                            </a>
+                            <a href="{{route('register')}}" class="dropdown-toggle lnk-cart">
+                                <div class="items-cart-inner">
+                                    <div class="basket" style="color:#000;">
+                                        <span>Register</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+                        @else
+                            <a href="{{route('login')}}" class="dropdown-toggle lnk-cart">
+                                <div class="items-cart-inner">
+                                    <div class="basket" style="color:#000;">
+                                        <span>{{Auth::User()->name}}</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <form class="dropdown-toggle lnk-cart" action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button class="btn btn-sm btn-info" style="margin-top: -35px;">Logout</button>
+                            </form>
+                        @endif
+
                         <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
                             <div class="items-cart-inner">
                                 <div class="basket" style="color:#000;">

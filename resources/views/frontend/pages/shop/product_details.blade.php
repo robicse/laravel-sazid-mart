@@ -1,5 +1,5 @@
 @extends('frontend.layouts.master')
-@section('title','Product Details')
+@section('title',$productDetails->name)
 @section('content')
     <div class="breadcrumb">
         <div class="container">
@@ -7,7 +7,7 @@
                 <ul class="list-inline list-unstyled">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Products</a></li>
-                    <li class='active'>Floral Print Buttoned</li>
+                    <li class='active'>{{$productDetails->name}}</li>
                 </ul>
             </div><!-- /.breadcrumb-inner -->
         </div><!-- /.container -->
@@ -292,59 +292,61 @@
                                 <div class="product-item-holder size-big single-product-gallery small-gallery">
 
                                     <div id="owl-single-product">
-                                        <div class="single-product-gallery-item" id="slide1">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p8.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p8.jpg')}}" />
+                                        @foreach($photos as $photo)
+                                        <div class="single-product-gallery-item" id="{{$photo}}">
+                                            <a data-lightbox="image-1" data-title="Gallery" href="{{url($photo)}}">
+                                                <img class="img-responsive" alt="" src="{{url($photo)}}" data-echo="{{url($photo)}}" />
                                             </a>
                                         </div><!-- /.single-product-gallery-item -->
+                                        @endforeach
 
-                                        <div class="single-product-gallery-item" id="slide2">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p9.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p9.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide2">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p9.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p9.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide3">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p10.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p10.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide3">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p10.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p10.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide4">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p11.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p11.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide4">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p11.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p11.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide5">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p12.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p12.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide5">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p12.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p12.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide6">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p13.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p13.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide6">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p13.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p13.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide7">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p14.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p14.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide7">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p14.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p14.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide8">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p15.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p15.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide8">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p15.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p15.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
-                                        <div class="single-product-gallery-item" id="slide9">
-                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p16.jpg')}}">
-                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p16.jpg')}}" />
-                                            </a>
-                                        </div><!-- /.single-product-gallery-item -->
+{{--                                        <div class="single-product-gallery-item" id="slide9">--}}
+{{--                                            <a data-lightbox="image-1" data-title="Gallery" href="{{asset('frontend/assets/images/products/p16.jpg')}}">--}}
+{{--                                                <img class="img-responsive" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p16.jpg')}}" />--}}
+{{--                                            </a>--}}
+{{--                                        </div><!-- /.single-product-gallery-item -->--}}
 
                                     </div><!-- /.single-product-slider -->
 
@@ -352,59 +354,13 @@
                                     <div class="single-product-gallery-thumbs gallery-thumbs">
 
                                         <div id="owl-single-product-thumbnails">
+                                            @foreach($photos as $photo)
                                             <div class="item">
-                                                <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#slide1">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p17.jpg')}}" />
+                                                <a class="horizontal-thumb active" data-target="#owl-single-product" data-slide="1" href="#{{$photo}}">
+                                                    <img class="img-responsive" width="85" alt="" src="{{url($photo)}}" data-echo="{{url($photo)}}" />
                                                 </a>
                                             </div>
-
-                                            <div class="item">
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="2" href="#slide2">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p18.jpg')}}"/>
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="3" href="#slide3">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p19.jpg')}}" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="4" href="#slide4">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p20.jpg')}}" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="5" href="#slide5">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p21.jpg')}}" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="6" href="#slide6">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p22.jpg')}}" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="7" href="#slide7">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p23.jpg')}}" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="8" href="#slide8">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p24.jpg')}}" />
-                                                </a>
-                                            </div>
-                                            <div class="item">
-
-                                                <a class="horizontal-thumb" data-target="#owl-single-product" data-slide="9" href="#slide9">
-                                                    <img class="img-responsive" width="85" alt="" src="{{asset('frontend/assets/images/blank.gif')}}" data-echo="{{asset('frontend/assets/images/products/p25.jpg')}}" />
-                                                </a>
-                                            </div>
+                                            @endforeach
                                         </div><!-- /#owl-single-product-thumbnails -->
 
 
@@ -415,7 +371,7 @@
                             </div><!-- /.gallery-holder -->
                             <div class='col-sm-6 col-md-7 product-info-block'>
                                 <div class="product-info">
-                                    <h1 class="name">Floral Print Buttoned</h1>
+                                    <h1 class="name">{{$productDetails->name}}</h1>
 
                                     <div class="rating-reviews m-t-20">
                                         <div class="row">
@@ -455,8 +411,8 @@
 
                                             <div class="col-sm-6">
                                                 <div class="price-box">
-                                                    <span class="price">$800.00</span>
-                                                    <span class="price-strike">$900.00</span>
+                                                    <span class="price">৳ {{$productDetails->purchase_price}}</span>
+                                                    <span class="price-strike">৳ {{$productDetails->unit_price}}</span>
                                                 </div>
                                             </div>
 
@@ -529,7 +485,7 @@
 
                                     <div id="description" class="tab-pane in active">
                                         <div class="product-tab">
-                                            <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<br><br> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                            <p class="text">{!! $productDetails->description !!}</p>
                                         </div>
                                     </div><!-- /.tab-pane -->
 

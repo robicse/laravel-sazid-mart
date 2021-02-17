@@ -286,7 +286,7 @@
                 maxCount: 10,
                 rowHeight: '200px',
                 groupClassName: 'col-md-4 col-sm-4 col-xs-6',
-                maxFileSize: '150000',
+                maxFileSize: '1500000',
                 dropFileLabel: "Drop Here",
                 onExtensionErr: function (index, file) {
                     console.log(index, file, 'extension err');
@@ -313,7 +313,7 @@
                 maxCount: 1,
                 rowHeight: '200px',
                 groupClassName: 'col-md-4 col-sm-4 col-xs-6',
-                maxFileSize: '100000',
+                maxFileSize: '1500000',
                 dropFileLabel: "Drop Here",
                 onExtensionErr: function (index, file) {
                     console.log(index, file, 'extension err');

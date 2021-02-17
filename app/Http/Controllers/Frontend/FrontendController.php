@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Model\Product;
 use App\User;
 use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
@@ -12,7 +13,10 @@ use Illuminate\Support\Facades\Session;
 class FrontendController extends Controller
 {
     public function index(){
-        return view('frontend.index');
+        $newProducts = Product::where('published',1)->latest()->take(8)->get();
+        $featuredProducts = Product::where('published',1)->where('featured',1)->latest()->take(8)->get();
+        $bestSellerProducts = Product::where('published',1)->where('num_of_sale','>',1)->latest()->take(8)->get();
+        return view('frontend.index',compact('newProducts','featuredProducts','bestSellerProducts'));
     }
     public function register(Request $request) {
         $this->validate($request, [

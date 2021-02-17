@@ -55,7 +55,8 @@ Route::get('/check-verification-code', 'Frontend\VerificationController@CheckVer
 
 //product
 Route::get('/products', 'Frontend\ProductController@productList')->name('all-product-list');
-Route::get('/product-details', 'Frontend\ProductController@productDetails')->name('product-details');
+Route::get('/product-details/{slug}', 'Frontend\ProductController@productDetails')->name('product-details');
+Route::get('/products/{slug}', 'Frontend\ProductController@productBySubcategory')->name('products-by-subcategory');
 
 
 //Cart

@@ -1,12 +1,12 @@
 @extends('frontend.layouts.master')
-@section('title','Products')
+@section('title',$subcategory->name)
 @section('content')
     <div class="breadcrumb">
         <div class="container">
             <div class="breadcrumb-inner">
                 <ul class="list-inline list-unstyled">
-                    <li><a href="{{url('/')}}">Home</a></li>
-                    <li class='active'>All Products</li>
+                    <li><a href="#">Home</a></li>
+                    <li class='active'>{{$subcategory->name}}</li>
                 </ul>
             </div><!-- /.breadcrumb-inner -->
         </div><!-- /.container -->
@@ -16,7 +16,7 @@
             <div class='row'>
                 <div class='col-md-3 sidebar'>
                     <!-- ================================== TOP NAVIGATION ================================== -->
-{{--                    @include('frontend.includes.frontend_sidebar')--}}
+                {{--                    @include('frontend.includes.frontend_sidebar')--}}
                 <!-- /.side-menu -->
                     <!-- ================================== TOP NAVIGATION : END ================================== -->	            <div class="sidebar-module-container">
 
@@ -129,63 +129,65 @@
                             <div class="tab-pane active " id="grid-container">
                                 <div class="category-product">
                                     <div class="row">
-                                        @foreach($allProducts as $allProduct)
-                                        <div class="col-sm-6 col-md-4 wow fadeInUp">
-                                            <div class="products">
+                                        @forelse($SubCatProducts as $SubCatProduct)
+                                            <div class="col-sm-6 col-md-4 wow fadeInUp">
+                                                <div class="products">
 
-                                                <div class="product">
-                                                    <div class="product-image">
-                                                        <div class="image">
-                                                            <a href="{{route('product-details',$allProduct->slug)}}"><img  src="{{url($allProduct->thumbnail_img)}}" alt="" width="247" height="270"></a>
-                                                        </div><!-- /.image -->
+                                                    <div class="product">
+                                                        <div class="product-image">
+                                                            <div class="image">
+                                                                <a href="{{route('product-details',$SubCatProduct->slug)}}"><img  src="{{url($SubCatProduct->thumbnail_img)}}" alt="" width="247" height="270"></a>
+                                                            </div><!-- /.image -->
 
-                                                        <div class="tag new"><span>new</span></div>
-                                                    </div><!-- /.product-image -->
+                                                            <div class="tag new"><span>new</span></div>
+                                                        </div><!-- /.product-image -->
 
 
-                                                    <div class="product-info text-left">
-                                                        <h3 class="name"><a href="{{route('product-details',$allProduct->slug)}}">{{$allProduct->name}}</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="description"></div>
+                                                        <div class="product-info text-left">
+                                                            <h3 class="name"><a href="{{route('product-details',$SubCatProduct->slug)}}">{{$SubCatProduct->name}}</a></h3>
+                                                            <div class="rating rateit-small"></div>
+                                                            <div class="description"></div>
 
-                                                        <div class="product-price">
+                                                            <div class="product-price">
 				<span class="price">
-					৳ {{$allProduct->purchase_price}}			</span>
-                                                            <span class="price-before-discount">৳ {{$allProduct->unit_price}}</span>
+					৳ {{$SubCatProduct->purchase_price}}			</span>
+                                                                <span class="price-before-discount">৳ {{$SubCatProduct->unit_price}}</span>
 
-                                                        </div><!-- /.product-price -->
+                                                            </div><!-- /.product-price -->
 
-                                                    </div><!-- /.product-info -->
-                                                    <div class="cart clearfix animate-effect">
-                                                        <div class="action">
-                                                            <ul class="list-unstyled">
-                                                                <li class="add-cart-button btn-group">
-                                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                                        <i class="fa fa-shopping-cart"></i>
-                                                                    </button>
-                                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                        </div><!-- /.product-info -->
+                                                        <div class="cart clearfix animate-effect">
+                                                            <div class="action">
+                                                                <ul class="list-unstyled">
+                                                                    <li class="add-cart-button btn-group">
+                                                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                                            <i class="fa fa-shopping-cart"></i>
+                                                                        </button>
+                                                                        <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
 
-                                                                </li>
+                                                                    </li>
 
-                                                                <li class="lnk wishlist">
-                                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                                        <i class="icon fa fa-heart"></i>
-                                                                    </a>
-                                                                </li>
+                                                                    <li class="lnk wishlist">
+                                                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                                            <i class="icon fa fa-heart"></i>
+                                                                        </a>
+                                                                    </li>
 
-                                                                <li class="lnk">
-                                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                                        <i class="fa fa-signal"></i>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div><!-- /.action -->
-                                                    </div><!-- /.cart -->
-                                                </div><!-- /.product -->
+                                                                    <li class="lnk">
+                                                                        <a class="add-to-cart" href="detail.html" title="Compare">
+                                                                            <i class="fa fa-signal"></i>
+                                                                        </a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div><!-- /.action -->
+                                                        </div><!-- /.cart -->
+                                                    </div><!-- /.product -->
 
-                                            </div><!-- /.products -->
-                                        </div><!-- /.item -->
-                                        @endforeach
+                                                </div><!-- /.products -->
+                                            </div><!-- /.item -->
+                                        @empty
+                                            <p class="text-center"><strong>No Product Added Yet!!!</strong></p>
+                                        @endforelse
 
 
                                     </div><!-- /.row -->

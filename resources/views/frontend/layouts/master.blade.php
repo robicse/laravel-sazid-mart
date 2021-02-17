@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.min.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/rateit.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}}">
+    <link href="{{asset('frontend/assets/css/lightbox.css')}}" rel="stylesheet">
 
 
 
