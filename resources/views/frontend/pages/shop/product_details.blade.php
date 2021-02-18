@@ -444,16 +444,16 @@
                                                 <div class="cart-quantity">
                                                     <div class="quant-input">
                                                         <div class="arrows">
-                                                            <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                                            <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                                            <div class="arrow plus gradient up"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                                                            <div class="arrow minus gradient down"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
                                                         </div>
-                                                        <input type="text" value="1">
+                                                        <input type="text" value="1" class="qtty">
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-7">
-                                                <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                                <a href="#" class="btn btn-primary" id="add_to_cart"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
                                             </div>
 
 
@@ -1039,3 +1039,99 @@
             <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->	</div><!-- /.container -->
     </div>
 @endsection
+@push('js')
+    <script>
+        $('.qtty').val(1);
+        $('#option-choice-form input').on('change', function(){
+            getVariantPrice($('#option-choice-form').serializeArray());
+            console.log($('#option-choice-form').serializeArray());
+        });
+        $('#add_to_cart').on('click', function(e){
+            e.preventDefault();
+            //getVariantPrice($('#option-choice-form').serializeArray());
+            addtocart($('#option-choice-form').serializeArray());
+        });
+        $('.up').on('click', function(event){
+            event.preventDefault();
+            var val=$('.qtty').val();
+            var price=$('.price').html();
+            var base_price=$('.base_price').val();
+            var base_qty=$('.base_qty').val();
+            // console.log(typeof base_qty);
+            // console.log(typeof val);
+            if(parseInt(val)<parseInt(base_qty)){
+                $('.qtty').val(parseInt(val)+1);
+                $('.price').html(parseInt(base_price)*(parseInt(val)+1));
+            }
+        });
+        $('.down').on('click', function(event){
+            event.preventDefault();
+            var val=$('.qtty').val();
+            var price=$('.price').html();
+            var base_price=$('.base_price').val();
+            if(parseInt(val)>1){
+                $('.qtty').val(parseInt(val)-1);
+                $('.price').html(parseInt(price)-parseInt(base_price));
+            }
+        });
+        function getVariantPrice(array){
+            console.log(array);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{route('product.variant.price')}}",
+                method: "post",
+                data:{
+                    variant:array,
+                },
+                success: function(data){
+                    console.log(data.response.price)
+                    $('.price').html(data.response.price);
+                    $('.base_price').val(data.response.price);
+                    $('.aval').html(data.response.qty+" available");
+                    $('.qtty').val(1);
+                    $('.base_qty').val(data.response.qty);
+                    //toastr.success('Lab Test added in your cart <span style="font-size: 25px;">&#10084;&#65039;</span>');
+                }
+            });
+        }
+
+        function addtocart(array){
+            //console.log(array);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: "{{route('product.add.cart')}}",
+                method: "post",
+                data:{
+                    variant:array,
+                    product_id: "{{$productDetails->id}}",
+                    product_name:"{{$productDetails->name}}",
+                    product_price:"{{$productDetails->unit_price}}",
+                },
+                success: function(data){
+                    console.log(data.response)
+                    $('.cart_count').html(data.response.countCart);
+                    $('.cart_item').append(`<div class="ps-product--cart-mobile">
+                                            <div class="ps-product__thumbnail"><a href="#"><img src="/${data.response['options'].image}" alt=""></a></div>
+                                            <div class="ps-product__content"><a class="ps-product__remove" href=""><i class="icon-cross"></i></a><a href="#">${data.response.name}</a>
+                                                <p><small>${data.response.qty} x ${data.response.price}</small>
+                                            </div>
+                                        </div>`);
+                    $('.subTotal').html(data.response.subtotal);
+                    // $('.base_price').val(data.response.price);
+                    // $('.aval').html(data.response.qty+" available");
+                    // $('.qtty').val(1);
+                    // $('.base_qty').val(data.response.qty);
+                    //toastr.success('Lab Test added in your cart <span style="font-size: 25px;">&#10084;&#65039;</span>');
+                }
+            });
+        }
+    </script>
+@endpush

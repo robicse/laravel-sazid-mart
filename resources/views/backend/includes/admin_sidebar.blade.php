@@ -223,12 +223,21 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item {{Request::is('admin/sliders*')  ? 'active' : ''}}">
-                        <a href="{{route('admin.sliders.index')}}" class="nav-link">
+                    <li class="nav-item ">
+                        <a href="{{route('admin.sliders.index')}}" class="nav-link {{Request::is('admin/sliders*')  ? 'active' : ''}} ">
 
                             <i class="nav-icon fas fa-sliders"></i>
                             <p>
                                 Sliders
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.advertisement.index')}}" class="nav-link {{Request::is('admin/advertisement*')  ? 'active' : ''}}">
+
+                            <i class="nav-icon fa fa-ad"></i>
+                            <p>
+                                Advertisement
                             </p>
                         </a>
                     </li>

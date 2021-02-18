@@ -47,7 +47,6 @@ Route::get('/best-selling/subcategories/filter/{data}/sellerId/{id}/sub/{subId}'
 Route::get('/brand/product/filter/{data}/sellerId/{id}/brnd/{brndId}', 'Frontend\VendorController@brandFilter');
 
 
-
 Route::post('/registration','Frontend\FrontendController@register')->name('user.register');
 Route::get('/get-verification-code/{id}', 'Frontend\VerificationController@getVerificationCode')->name('get-verification-code');
 Route::post('/get-verification-code-store', 'Frontend\VerificationController@verification')->name('get-verification-code.store');
@@ -62,6 +61,8 @@ Route::get('/products/{slug}', 'Frontend\ProductController@productBySubcategory'
 //Cart
 Route::get('/cart', 'Frontend\CartController@cartShow')->name('show.cart');
 Route::get('/checkout', 'Frontend\CartController@checkout')->name('checkout');
+Route::post('/products/get/variant/price', 'Frontend\ProductController@ProductVariantPrice')->name('product.variant.price');
+Route::post('/products/ajax/addtocart', 'Frontend\CartController@ProductAddCart')->name('product.add.cart');
 
 
 //Route::get('/product/{slug}', 'Frontend\ProductController@ProductDetails')->name('product-details');

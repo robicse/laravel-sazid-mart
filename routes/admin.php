@@ -78,6 +78,7 @@ Route::group(['as'=>'admin.','prefix' =>'admin','namespace'=>'Admin', 'middlewar
 
     //Sliders
     Route::resource('sliders','SliderController');
+    Route::resource('advertisement','AdvertisementController');
     Route::resource('profile','ProfileController');
     Route::put('password/update/{id}','ProfileController@updatePassword')->name('password.update');
     Route::get('get-all-vendors','VendorController@index')->name('get-all-vendors.index');
