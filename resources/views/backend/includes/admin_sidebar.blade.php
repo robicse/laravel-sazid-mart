@@ -222,7 +222,6 @@
                             </li>
                         </ul>
                     </li>
-
                     <li class="nav-item ">
                         <a href="{{route('admin.sliders.index')}}" class="nav-link {{Request::is('admin/sliders*')  ? 'active' : ''}} ">
 

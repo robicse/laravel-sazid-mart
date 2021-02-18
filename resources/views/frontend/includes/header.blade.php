@@ -117,7 +117,7 @@
                             </a>
                             <form class="dropdown-toggle lnk-cart" action="{{route('logout')}}" method="POST">
                                 @csrf
-                                <button class="btn btn-sm btn-info" style="margin-top: -35px;">Logout</button>
+                                <button class="btn btn-sm btn-success" style="margin-top: -35px;">Logout</button>
                             </form>
                         @endif
 
