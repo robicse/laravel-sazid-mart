@@ -24,6 +24,9 @@
             <li class="dropdown menu-item">
                 <a href="{{route('user.wishlist')}}" class="{{Request::is('user/wishlist*') ? 'head' :''}}" ><i class="icon fa fa-heart"></i>Wishlist</a>
             </li><!-- /.menu-item -->
+            <li class="dropdown menu-item">
+            <a href="{{route('user.blogs.index')}}" class="{{Request::is('user/blogs*') ? 'head' :''}}" ><i class="icon fa fa-newspaper-o"></i>Write a Blog</a>
+            </li><!-- /.menu-item -->
 
             <li class="dropdown menu-item">
                 <form action="{{route('logout')}}" method="POST">

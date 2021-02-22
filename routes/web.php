@@ -107,6 +107,7 @@ Route::group(['middleware' => ['auth', 'user']], function () {
     //this route only for resource controller
     Route::group(['as' => 'user.', 'prefix' => 'user', 'namespace' => 'User',], function () {
         Route::resource('address', 'AddressController');
+        Route::resource('blogs', 'BlogController');
     });
     Route::post('/user/address-status/update/{id}', 'User\AddressController@updateStatus')->name('user.update.status');
 

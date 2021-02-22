@@ -231,6 +231,15 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item ">
+                        <a href="{{route('admin.blogs.index')}}" class="nav-link {{Request::is('admin/blogs*')  ? 'active' : ''}} ">
+
+                            <i class="nav-icon fas fa-newspaper-o"></i>
+                            <p>
+                                Blogs
+                            </p>
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="{{route('admin.advertisement.index')}}" class="nav-link {{Request::is('admin/advertisement*')  ? 'active' : ''}}">
 
