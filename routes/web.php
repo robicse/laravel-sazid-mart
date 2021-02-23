@@ -32,7 +32,7 @@ Route::get('/remove/wishlist/{id}', 'Frontend\WishlistController@wishlistRemove'
 
 //Blog
 Route::get('/blog', 'Frontend\BlogController@index')->name('blog-list');
-Route::get('/blog-details', 'Frontend\BlogController@details')->name('blog-details');
+Route::get('/blog-details/{slug}', 'Frontend\BlogController@details')->name('blog-details');
 
 
 //Search

@@ -78,7 +78,11 @@ Route::group(['as'=>'admin.','prefix' =>'admin','namespace'=>'Admin', 'middlewar
 
     //Sliders
     Route::resource('sliders','SliderController');
+
+    //Blogs
     Route::resource('blogs','BlogController');
+    Route::post('blog/status', 'BlogController@updateStatus')->name('blog.status');
+
     Route::resource('advertisement','AdvertisementController');
     Route::resource('profile','ProfileController');
     Route::put('password/update/{id}','ProfileController@updatePassword')->name('password.update');

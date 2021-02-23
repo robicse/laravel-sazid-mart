@@ -43,6 +43,7 @@
                                 <th>#Id</th>
                                 <th>Name</th>
                                 <th>Author</th>
+                                <th>Approve</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -54,6 +55,14 @@
                                     <td>{{$blog->title}}</td>
                                     <td>{{$blog->author}}</td>
                                     <td>
+                                        <div class="form-group col-md-2">
+                                            <label class="switch" style="margin-top:40px;">
+                                                <input onchange="update_status(this)" value="{{ $blog->id }}" {{$blog->status == 1? 'checked':''}} type="checkbox" >
+                                                <span class="slider round"></span>
+                                            </label>
+                                        </div>
+                                    </td>
+                                    <td>
                                         <img src="{{asset('uploads/blogs/'.$blog->image)}}" width="80" height="40" alt="">
                                     </td>
                                     <td>
@@ -61,7 +70,7 @@
                                             <i class="fa fa-edit"></i>
                                         </a>
                                         <button class="btn btn-danger waves-effect" type="button"
-                                                onclick="deleteCategory({{$blog->id}})">
+                                                onclick="deleteBlog({{$blog->id}})">
                                             <i class="fa fa-trash"></i>
                                         </button>
                                         <form id="delete-form-{{$blog->id}}" action="{{route('admin.blogs.destroy',$blog->id)}}" method="POST" style="display: none;">
@@ -77,6 +86,7 @@
                                 <th>#Id</th>
                                 <th>Name</th>
                                 <th>Author</th>
+                                <th>Approve</th>
                                 <th>Image</th>
                                 <th>Action</th>
                             </tr>
@@ -108,7 +118,7 @@
         });
 
         //sweet alert
-        function deleteCategory(id) {
+        function deleteBlog(id) {
             swal({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -136,6 +146,23 @@
                     )
                 }
             })
+        }
+        //update status
+        function update_status(el){
+            if(el.checked){
+                var status = 1;
+            }
+            else{
+                var status = 0;
+            }
+            $.post('{{ route('admin.blog.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
+                if(data == 1){
+                    toastr.success('success', 'Is Home updated successfully');
+                }
+                else{
+                    toastr.danger('danger', 'Something went wrong');
+                }
+            });
         }
     </script>
 @endpush

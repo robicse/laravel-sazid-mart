@@ -16,33 +16,35 @@
             <div class="row">
                 <div class="blog-page">
                     <div class="col-md-9">
+                        @foreach($blogs as $blog)
                         <div class="blog-post  wow fadeInUp">
-                            <a href="{{route('blog-details')}}"><img class="img-responsive" src="{{asset('frontend/assets/images/blog-post/blog_big_01.jpg')}}" alt=""></a>
-                            <h1><a href="{{route('blog-details')}}">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a></h1>
-                            <span class="author">John Doe</span>
-                            <span class="review">6 Comments</span>
-                            <span class="date-time">14/06/2016 10.00AM</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                            <a href="#" class="btn btn-upper btn-primary read-more">read more</a>
+                            <a href="{{route('blog-details',$blog->slug)}}"><img class="img-responsive" src="{{asset('uploads/blogs/'.$blog->image)}}" alt=""></a>
+                            <h1><a href="{{route('blog-details',$blog->slug)}}">{{$blog->title}}</a></h1>
+                            <span class="author">{{$blog->author}}</span>
+{{--                            <span class="review">6 Comments</span>--}}
+                            <span class="date-time">{{date('jS M Y',strtotime($blog->created_at))}}</span>
+                            <p>{!! Str::limit($blog->short_description, 300) !!}</p>
+                            <a href="{{route('blog-details',$blog->slug)}}" class="btn btn-upper btn-primary read-more">read more</a>
                         </div>
-                        <div class="blog-post outer-top-bd  wow fadeInUp">
-                            <a href="{{route('blog-details')}}"><img class="img-responsive" src="{{asset('frontend/assets/images/blog-post/blog_big_02.jpg')}}" alt=""></a>
-                            <h1><a href="{{route('blog-details')}}">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a></h1>
-                            <span class="author">Sarah Smith</span>
-                            <span class="review">6 Comments</span>
-                            <span class="date-time">20/06/2016 11.00AM</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                            <a href="#" class="btn btn-upper btn-primary read-more">read more</a>
-                        </div>
-                        <div class="blog-post outer-top-bd  wow fadeInUp">
-                            <a href="blog-details.html"><img class="img-responsive" src="{{asset('frontend/assets/images/blog-post/blog_big_03.jpg')}}" alt=""></a>
-                            <h1><a href="blog-details.html">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a></h1>
-                            <span class="author">Mark Doe</span>
-                            <span class="review">6 Comments</span>
-                            <span class="date-time">14/06/2014 11.00AM</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>
-                            <a href="#" class="btn btn-upper btn-primary read-more">read more</a>
-                        </div>
+                        @endforeach
+{{--                        <div class="blog-post outer-top-bd  wow fadeInUp">--}}
+{{--                            <a href="{{route('blog-details')}}"><img class="img-responsive" src="{{asset('frontend/assets/images/blog-post/blog_big_02.jpg')}}" alt=""></a>--}}
+{{--                            <h1><a href="{{route('blog-details')}}">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a></h1>--}}
+{{--                            <span class="author">Sarah Smith</span>--}}
+{{--                            <span class="review">6 Comments</span>--}}
+{{--                            <span class="date-time">20/06/2016 11.00AM</span>--}}
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>--}}
+{{--                            <a href="#" class="btn btn-upper btn-primary read-more">read more</a>--}}
+{{--                        </div>--}}
+{{--                        <div class="blog-post outer-top-bd  wow fadeInUp">--}}
+{{--                            <a href="blog-details.html"><img class="img-responsive" src="{{asset('frontend/assets/images/blog-post/blog_big_03.jpg')}}" alt=""></a>--}}
+{{--                            <h1><a href="blog-details.html">Nemo enim ipsam voluptatem quia voluptas sit aspernatur</a></h1>--}}
+{{--                            <span class="author">Mark Doe</span>--}}
+{{--                            <span class="review">6 Comments</span>--}}
+{{--                            <span class="date-time">14/06/2014 11.00AM</span>--}}
+{{--                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum...</p>--}}
+{{--                            <a href="#" class="btn btn-upper btn-primary read-more">read more</a>--}}
+{{--                        </div>--}}
 
                         <div class="clearfix blog-pagination filters-container  wow fadeInUp" style="padding:0px; background:none; box-shadow:none; margin-top:15px; border:none">
 
