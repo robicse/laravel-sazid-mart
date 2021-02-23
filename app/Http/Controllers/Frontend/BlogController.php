@@ -14,6 +14,7 @@ class BlogController extends Controller
     }
     public function details($slug) {
         $blog = Blog::where('slug',$slug)->first();
-        return view('frontend.pages.blog_details',compact('blog'));
+        $latestBlogs = Blog::where('status',1)->latest()->take(3)->get();
+        return view('frontend.pages.blog_details',compact('blog','latestBlogs'));
     }
 }
