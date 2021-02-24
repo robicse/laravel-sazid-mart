@@ -157,7 +157,7 @@
             }
             $.post('{{ route('admin.blog.status') }}', {_token:'{{ csrf_token() }}', id:el.value, status:status}, function(data){
                 if(data == 1){
-                    toastr.success('success', 'Is Home updated successfully');
+                    toastr.success('success', 'Blog Status updated successfully');
                 }
                 else{
                     toastr.danger('danger', 'Something went wrong');

@@ -2298,16 +2298,12 @@
                                                     <a href="{{route('blog-details',$latestBlog->slug)}}"><img src="{{asset('uploads/blogs/'.$latestBlog->image)}}" alt=""></a>
                                                 </div>
                                             </div><!-- /.blog-post-image -->
-
-
                                             <div class="blog-post-info text-left">
                                                 <h3 class="name"><a href="{{route('blog-details',$latestBlog->slug)}}">{{$latestBlog->title}}</a></h3>
                                                 <span class="info">{{$latestBlog->author}} &nbsp;|&nbsp; {{date('jS M Y',strtotime($latestBlog->created_at))}} </span>
                                                 <p class="text">{!! Str::limit($latestBlog->short_description, 200) !!}</p>
                                                 <a href="{{route('blog-details',$latestBlog->slug)}}" class="lnk btn btn-primary">Read more</a>
                                             </div><!-- /.blog-post-info -->
-
-
                                         </div><!-- /.blog-post -->
                                     </div><!-- /.item -->
                                 @endforeach
